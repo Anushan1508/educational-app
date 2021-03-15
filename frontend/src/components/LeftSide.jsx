@@ -7,14 +7,14 @@ const LeftSide = () => {
             <br/><br/><br/>
             <Form style={{width:"80%", marginTop:"10%", marginLeft:"10%"}}>
                 <Form.Group>
-                    <Form.Label>Enter your email</Form.Label>
+                    <Form.Label>Email</Form.Label>
                     <Form.Control type="email" placeholder="Enter Your Email" />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Enter your password</Form.Label>
+                    <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Enter your password" />
                 </Form.Group>
-                <Button type="submit">Submit</Button>
+                <Button type="submit">Login</Button>
             </Form>
         </div>
     )

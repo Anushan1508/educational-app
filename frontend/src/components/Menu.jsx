@@ -6,18 +6,20 @@ const Menu = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                    <Navbar.Brand href="#home">Alvin</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="#features">Features</Nav.Link>
-                            <Nav.Link href="#pricing">Pricing</Nav.Link>
-                            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                            <Nav.Link href="#home">Home</Nav.Link>
+                            <Nav.Link href="#dashboard">Dashboard</Nav.Link>
+                            <NavDropdown title="Subjects" id="collasible-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1">Physics</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Chemistry</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">Mathematics</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.4">Biology</NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.5">GIT</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.6">General Knowledge</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                         <Nav>
