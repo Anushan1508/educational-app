@@ -23,10 +23,17 @@ const Menu = () => {
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                Dank memes
-      </Nav.Link>
+                            <Nav.Link href="#deets">More Fields</Nav.Link>
+                            <NavDropdown title="User" id="collasible-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1">Dashboard</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="#action/3.2">Profile</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">Grade</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.4">Messages</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.5">Preferences</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="#action/3.6">Log out</NavDropdown.Item>
+                            </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
