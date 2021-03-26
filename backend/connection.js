@@ -1,19 +1,16 @@
-const MongoClient = require('mongodb').MongoClient;
+const mongoose = require('mongoose');
+const url = 'mongodb://127.0.0.1:27017/school';
 
-// Connect URL
-const url = 'mongodb://127.0.0.1:27017';
-
-// Connec to MongoDB
-MongoClient.connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}, (err, client) => {
-    if (err) {
-        return console.log(err);
+(async () => {
+    try {
+        await mongoose.connect(url, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useFindAndModify: false,
+            useCreateIndex: true
+        });
+        console.log(`MongoDB Connected: ${url}`);
+    } catch (err) {
+        console.error(err);
     }
-
-    // Specify database you want to access
-    const db = client.db('school');
-
-    console.log(`MongoDB Connected: ${url}`);
-});
+})();
