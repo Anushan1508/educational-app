@@ -1,7 +1,7 @@
 const express = require('express')
 const route = express.Router()
 
-const services = require('../services/render')
+const services = require('../server/services/render')
 
 /**
  * @description Root Route
