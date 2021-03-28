@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
+const JWT_SECRET= 'cbtN[9q==G\Wh>P(E?(6t[HPvjx57DF}!d*Jd,XCaR^UfNU{)M';
 
 router.post('/', async (req, res) => {
     try {
@@ -41,18 +44,24 @@ router.post('/', async (req, res) => {
     }
 
     // hash the password
-
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
     //console.log(passwordHash);
 
     // save a new user accont to the databse
-
     const newUser = new User({
         email, firstname, lastname, passwordHash, grade, role
     });
 
     const savedUser = await newUser.save();
+
+    // log the user in
+    const token = jwt.sign({
+        user: savedUser._id
+    }, 
+    JWT_SECRET);
+
+    console.log(token);
 
     } catch (err) {
         console.error(err);
