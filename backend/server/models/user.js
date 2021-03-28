@@ -6,12 +6,12 @@ const UserSchema = new Schema({
     lastname: { type: String, required: true },
     email: { type: String, lowercase:true, unique: true, required:true},
     grade: { type: String, required: true },
-    password: { type: String, required:true  },
-    roles: { 
+    role: { 
         type: String,
         enum: ['student', 'teacher','admin'],
         default: 'student'
       },   
+      passwordHash: { type: String, required:true  },
 })
 
 const User= mongoose.model("user",UserSchema);

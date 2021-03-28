@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const url = 'mongodb://localhost:27017/';
 
+//const url = 'mongodb+srv://admin:admin123@cluster0.qc9ao.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+
+
 const connectDB = async () => {
     try {
         await mongoose.connect(url, {
@@ -15,3 +18,4 @@ const connectDB = async () => {
     }
 };
 module.exports = connectDB;
+
