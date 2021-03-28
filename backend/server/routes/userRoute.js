@@ -55,13 +55,19 @@ router.post('/', async (req, res) => {
 
     const savedUser = await newUser.save();
 
-    // log the user in
+    // sing the token
     const token = jwt.sign({
         user: savedUser._id
     }, 
     JWT_SECRET);
+    // console.log(token);
 
-    console.log(token);
+    // send the token in a HTTP-only cookie
+    res.cookie("token", token, {
+        httpOnly: true
+    })
+    .send();
+    
 
     } catch (err) {
         console.error(err);
