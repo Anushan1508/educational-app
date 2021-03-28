@@ -5,10 +5,9 @@ const jwt = require('jsonwebtoken');
 
 const JWT_SECRET= 'cbtN[9q==G\Wh>P(E?(6t[HPvjx57DF}!d*Jd,XCaR^UfNU{)M';
 
+// register user 
 router.post('/', async (req, res) => {
     try {
-    // const {firstname, lastname, email, grade, role, password, passwordVerify } = req.body;
-    //console.log(email);
     const email = req.body.email
     const firstname = req.body.firstname
     const lastname = req.body.lastname
@@ -67,12 +66,14 @@ router.post('/', async (req, res) => {
         httpOnly: true
     })
     .send();
-    
+
 
     } catch (err) {
         console.error(err);
         res.status(500).send();
 }});
+
+
 
 module.exports =router;
 
