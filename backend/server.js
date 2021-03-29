@@ -30,6 +30,7 @@ app.use(express.json());
 
 // Load Routers
 app.use('/auth', require('./server/routes/userRoute'));
+app.use('/lession', require('./server/routes/lessionRouter'));
 
 // mongodb connection
 connectDB();

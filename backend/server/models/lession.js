@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const LessonSchema = new Schema({
     
-        lesson: { type: String, required: true },
+        name: { type: String, required: true },
         grade: { type: String, required: true },
         students:[{
                 studentid:{
@@ -17,14 +17,15 @@ const LessonSchema = new Schema({
                 type:Schema.Types.ObjectId,
                 ref:'user'
         },
-        assignemnts:[{
-                assignmentid:{
+        quiz:[{
+                quizid:{
                         type:Schema.Types.ObjectId,
-                        ref:'assignment'
+                        ref:'quiz'
                 }
         }]
-},
-{timestamps:true}
+}
+//,
+// {timestamps:true}
 
 );
 

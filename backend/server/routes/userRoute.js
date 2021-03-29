@@ -18,7 +18,9 @@ router.post('/', async (req, res) => {
 
         // Validation
         if (!email || !password || !firstname || !lastname || !grade || !passwordVerify) {
-            return res.status(400).json({ errorMessage: 'Please enter all required fields' });
+            return res
+            .status(400)
+            .json({ errorMessage: 'Please enter all required fields' });
         }
 
         if (password.length < 6) {
@@ -49,7 +51,12 @@ router.post('/', async (req, res) => {
 
         // save a new user accont to the databse
         const newUser = new User({
-            email, firstname, lastname, passwordHash, grade, role
+            email, 
+            firstname, 
+            lastname, 
+            passwordHash, 
+            grade, 
+            role
         });
 
         const savedUser = await newUser.save();
@@ -70,7 +77,9 @@ router.post('/', async (req, res) => {
 
     } catch (err) {
         console.error(err);
-        res.status(500).send();
+        res
+        .status(500)
+        .send();
     }
 });
 
@@ -109,7 +118,8 @@ router.post("/login", async (req, res) => {
         // console.log(token);
 
         // send the token in a HTTP-only cookie
-        res.cookie("token", token, {
+        res
+        .cookie("token", token, {
             httpOnly: true
         })
             .send();
@@ -119,7 +129,9 @@ router.post("/login", async (req, res) => {
     }
     catch (err) {
         console.error(err);
-        res.status(500).send();
+        res
+        .status(500)
+        .send();
     }
 });
 
@@ -133,48 +145,3 @@ router.get('/logout', (req, res) => {
 });
 
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const express = require('express');
-// const mongoose = require('mongoose');
-// const bodyParser = require('body-parser');
-// require('../models/user');
-// const User = mongoose.model('user');
-// const bcrypt = require('bcrypt');
-// const config = require('config');
-// const jwt = require('jsonwebtoken');
-// const userRouter = express.Router();
-// userRouter.use(bodyParser.json());
-
-// userRouter.route('/register')
-//     .get((req, res, next) => {
-//         res.json("no get")
-//     })
-//     .post((req, res, next) => {
-//         const email = req.body.email
-//         const firstname = req.body.firstname
-//         const lastname = req.body.lastname
-//         const password = req.body.password
-//         const grade = req.body.grade
-//         const roles = req.body.roles
-//         if (!email || !password || !firstname || !lastname || !grade) {
-//             return res.status(400).json({ msg: 'Please enter all fields' });
-//     }})
