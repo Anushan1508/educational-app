@@ -2,8 +2,9 @@ const router = require('express').Router();
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
-const JWT_SECRET = 'cbtN[9q==G\Wh>P(E?(6t[HPvjx57DF}!d*Jd,XCaR^UfNU{)M';
+const jwtSecret = process.env.JWT_SECRET;
 
 // register user 
 router.post('/', async (req, res) => {
@@ -19,8 +20,8 @@ router.post('/', async (req, res) => {
         // Validation
         if (!email || !password || !firstname || !lastname || !grade || !passwordVerify) {
             return res
-            .status(400)
-            .json({ errorMessage: 'Please enter all required fields' });
+                .status(400)
+                .json({ errorMessage: 'Please enter all required fields' });
         }
 
         if (password.length < 6) {
@@ -51,11 +52,11 @@ router.post('/', async (req, res) => {
 
         // save a new user accont to the databse
         const newUser = new User({
-            email, 
-            firstname, 
-            lastname, 
-            passwordHash, 
-            grade, 
+            email,
+            firstname,
+            lastname,
+            passwordHash,
+            grade,
             role
         });
 
@@ -65,7 +66,7 @@ router.post('/', async (req, res) => {
         const token = jwt.sign({
             user: savedUser._id
         },
-            JWT_SECRET);
+            jwtSecret);
         // console.log(token);
 
         // send the token in a HTTP-only cookie
@@ -78,8 +79,8 @@ router.post('/', async (req, res) => {
     } catch (err) {
         console.error(err);
         res
-        .status(500)
-        .send();
+            .status(500)
+            .send();
     }
 });
 
@@ -114,14 +115,14 @@ router.post("/login", async (req, res) => {
         const token = jwt.sign({
             user: existingUser._id
         },
-            JWT_SECRET);
+            jwtSecret);
         // console.log(token);
 
         // send the token in a HTTP-only cookie
         res
-        .cookie("token", token, {
-            httpOnly: true
-        })
+            .cookie("token", token, {
+                httpOnly: true
+            })
             .send();
 
 
@@ -130,8 +131,8 @@ router.post("/login", async (req, res) => {
     catch (err) {
         console.error(err);
         res
-        .status(500)
-        .send();
+            .status(500)
+            .send();
     }
 });
 
@@ -141,7 +142,7 @@ router.get('/logout', (req, res) => {
         httpOnly: true,
         expires: new Date(0)
     })
-    .send();
+        .send();
 });
 
 module.exports = router;

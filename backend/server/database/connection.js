@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
-const url = 'mongodb://localhost:27017/';
-
-//const url = 'mongodb+srv://admin:admin123@cluster0.qc9ao.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-
+require('dotenv').config();
+const url = process.env.Mongo_URL
 
 const connectDB = async () => {
     try {
@@ -13,7 +11,7 @@ const connectDB = async () => {
             useCreateIndex: true
         });
         console.log(`MongoDB Connected: ${url}`);
-    } catch (err) {
+    } catch (err) { 
         console.error(err);
     }
 };

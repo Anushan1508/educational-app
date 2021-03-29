@@ -1,5 +1,5 @@
 const express = require('express');
-const dotenv = require('dotenv');
+require('dotenv').config();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -8,7 +8,7 @@ const connectDB = require('./server/database/connection');
 
 const app = express();
 
-dotenv.config({path:'config.env'})
+require('dotenv').config();
 const PORT = process.env.PORT || 8800;
 
 // Log Requests
