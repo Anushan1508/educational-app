@@ -10,7 +10,7 @@ const LeftSide = () => {
     return (
         <Card className='card'>
             <Tabs onSelect={(index, label) => console.log(label + ' selected')}  >
-                <Tab label="Login"  ><Login /></Tab>
+                <Tab label="Login" xs lg='100' ><Login /></Tab>
                 <Tab label="Sign Up"><Signup /></Tab>
             </Tabs>
         </Card>

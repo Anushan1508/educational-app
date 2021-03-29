@@ -3,7 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Row, Form, FormControl, Button, NavDropdown } from 'react-bootstrap'
 import { NavLink, Route, Link } from 'react-router-dom';
 import { ImBooks } from 'react-icons/im';
-import Signin from './Signin'
+import Signin from './pages/Signin'
+import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
 import './Navbar.css'
 
 
@@ -13,40 +15,33 @@ function Navbar() {
             <Container fluid style={{ backgroundColor: '#7395AE', height: '150px', position: 'sticky', marginTop: '0.5rem' }}>
                 <Row >
                     <Col xs lg="6">
-                        <Link to="/home">
-                            <div className='navbar-logo'>
-                                <ImBooks style={{ width: '40px', height: '40px', marginRight: '1rem' }} />
-                                <span className="header" >AlViN EDU-Master</span>
-                            </div>
-                        </Link>
+                        <div className='navbar-logo'>
+                            <ImBooks style={{ width: '40px', height: '40px', marginRight: '1rem' }} />
+                            <span className='header' >AlViN EDU-Master</span>
+                        </div>
                     </Col>
                     <Col xs lg='2.5'>
-                        <Form inline style={{ marginTop: '25px'}}>
+                        <Form inline style={{ marginTop: '25px' }}>
                             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                             <Button variant="secondary">Search</Button>
                         </Form>
                     </Col>
-                    </Row>
-                    <Row>
+                </Row>
+                <Row>
                     <Col className='nav-items'>
-                        <Link to='/videos' className='nav-links'>Articles</Link>
+                        <Link to='/discussion' className='nav-links'>Home</Link>
                     </Col>
                     <Col className='nav-items'>
-                        <Link to='/videos' className='nav-links'>Videos</Link>
-                    </Col>
-                    <Col className='nav-items'>
-                        <Link to='/videos' className='nav-links'>Quizes</Link>
+                        <Link to='/dashboard' className='nav-links'>Dashboard</Link>
                     </Col>
                     <Col className='nav-items'>
                         <Link to='/discussion' className='nav-links'>Discussion</Link>
                     </Col>
                     <Col className='nav-items'>
-                        <Link to='/contact' className='nav-links'>Contact Us</Link>
+                        <Link to='/discussion' className='nav-links'>Contact us</Link>
                     </Col>
-                    <Col>
-                        <NavDropdown title="User" id="collasible-nav-dropdown" className='title'>
-                            <NavDropdown.Item href="#action/3.1">Dashboard</NavDropdown.Item>
-                            <NavDropdown.Divider />
+                    <Col >
+                        <NavDropdown  title={<span className="title">User</span>} >
                             <NavDropdown.Item href="#action/3.2">Profile</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Grade</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.4">Messages</NavDropdown.Item>
@@ -62,8 +57,9 @@ function Navbar() {
                     </Col>
                 </Row>
             </Container>
-
+            <Route path="/dashboard" component={Dashboard} />
             <Route path="/signin" component={Signin} />
+
         </>
     );
 }
