@@ -3,6 +3,7 @@ require('dotenv').config();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cookieParser = require('cookie-parser'); 
 
 const connectDB = require('./server/database/connection');
 
@@ -27,6 +28,7 @@ app.listen(PORT, () => {
 
 
 app.use(express.json());
+app.use(cookieParser());
 
 // Load Routers
 app.use('/auth', require('./server/routes/userRoute'));
