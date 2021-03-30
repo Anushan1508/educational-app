@@ -26,4 +26,20 @@ router.post('/',  auth,  async (req, res) => {
     }
 })
 
+router.get('/', auth,  async (req, res) => {
+
+    try {
+        const lessions = await Lesson.find();
+        res.json(lessions);
+    }
+
+    catch(err) {
+        console.error(err);
+        res
+        .status(500)
+        .send();
+    }
+    
+})
+
 module.exports = router;
