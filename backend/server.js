@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser'); 
 
-const connectDB = require('./server/database/connection');
+const connectDB = require('./database/connection');
 
 const app = express();
 
@@ -31,8 +31,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Load Routers
-app.use('/auth', require('./server/routes/userRoute'));
-app.use('/lession', require('./server/routes/lessionRouter'));
+app.use('/auth', require('./routes/userRoute'));
+app.use('/lession', require('./routes/lessionRouter'));
 
 // mongodb connection
 connectDB();
