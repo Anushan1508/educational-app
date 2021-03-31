@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route} from 'react-router-dom';
+import Register from './components/auth/Register';
 import Navbar from './components/layout/Navbar';
 
 export default function Router() {
@@ -7,16 +8,16 @@ export default function Router() {
         <BrowserRouter>
         <Navbar />
             <Switch>
-                <Route path='/'>
+                <Route exact path="/">
                     <div>Home</div>
                 </Route>
-                <Route path='/register'>
-                    <div>Register</div>
+                <Route path="/register">
+                    <Register />
                 </Route>
-                <Route path='/login'>
-                    <div>Log In</div>
+                <Route path="/login">
+                    <div>Login</div>
                 </Route>
-                <Route path='/lessions'>
+                <Route path="/lession">
                     <div>Lessions</div>
                 </Route>
             </Switch>

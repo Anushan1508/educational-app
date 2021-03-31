@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
         const role = req.body.role
 
         // Validation
-        if (!email || !password || !firstname || !lastname || !grade || !passwordVerify) {
+        if (!email || !password || !firstname || !lastname || !grade || !passwordVerify || !role) {
             return res
                 .status(400)
                 .json({ errorMessage: 'Please enter all required fields' });

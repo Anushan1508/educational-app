@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cookieParser = require('cookie-parser'); 
+const cors = require('cors');
 
 const connectDB = require('./database/connection');
 
@@ -29,6 +30,9 @@ app.listen(PORT, () => {
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({
+    origin: ["http://localhost:3000"]
+}));
 
 // Load Routers
 app.use('/auth', require('./routes/userRoute'));
