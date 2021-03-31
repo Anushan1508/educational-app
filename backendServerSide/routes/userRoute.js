@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
         const grade = req.body.grade
         const role = req.body.role
 
-        // Validation
+        //Validation
         if (!email || !password || !firstname || !lastname || !grade || !passwordVerify || !role) {
             return res
                 .status(400)
