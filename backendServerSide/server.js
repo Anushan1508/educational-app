@@ -3,7 +3,7 @@ require('dotenv').config();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
-const cookieParser = require('cookie-parser'); 
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
 const connectDB = require('./database/connection');
@@ -20,7 +20,7 @@ app.use(morgan('tiny'));
 
 
 // Parse request to body-parser
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
@@ -30,9 +30,12 @@ app.listen(PORT, () => {
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-    origin: ["http://localhost:3000"]
-}));
+app.use(
+    cors({
+        origin: ["http://localhost:3000"],
+        credentials: true,
+    })
+);
 
 // Load Routers
 app.use('/auth', require('./routes/userRoute'));

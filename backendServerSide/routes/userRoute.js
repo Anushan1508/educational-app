@@ -13,35 +13,35 @@ router.post('/', async (req, res) => {
         const firstname = req.body.firstname
         const lastname = req.body.lastname
         const password = req.body.password
-        const passwordVerify = req.body.passwordVerify
+        const passwordverify = req.body.passwordverify
         const grade = req.body.grade
         const role = req.body.role
 
         //Validation
-        if (!email || !password || !firstname || !lastname || !grade || !passwordVerify || !role) {
+        if (email =="" || password == "" || firstname == "" || lastname == "" || grade == "" || passwordverify=="" || role =="") {
             return res
-                .status(400)
+                .status(401)
                 .json({ errorMessage: 'Please enter all required fields' });
         }
-
+        console.log('step1');
         if (password.length < 6) {
             return res
-                .status(400)
+                .status(402)
                 .json({ errorMessage: "Please enter a password of at least 6 charectors" });
         }
-
-        if (password !== passwordVerify) {
+        console.log('step2');
+        if (password !== passwordverify) {
             return res
-                .status(400)
+                .status(403)
                 .json({ errorMessage: "Please enter same password twice" });
         }
-
+        console.log('step3');
         const existingUser = await User.findOne({ email });
         // console.log(existingUser);
 
         if (existingUser) {
             return res
-                .status(400)
+                .status(404)
                 .json({ errorMessage: "An account with this email already exists." });
         }
 

@@ -3,25 +3,25 @@ import React, { useState } from 'react'
 
 export default function Register() {
 
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
+    const [firstname, setFirstName] = useState("");
+    const [lastname, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [grade, setGrade] = useState("");
     const [role, setRole] = useState("");
     const [password, setPassword] = useState("");
-    const [passwordVerify, setPasswordVerify] = useState("");
+    const [passwordverify, setPasswordverify] = useState("");
 
     async function register(e) {
         e.preventDefault();
         try {
             const registerData = {
-                firstName,
-                lastName,
+                firstname,
+                lastname,
                 email,
                 grade,
                 role,
                 password,
-                passwordVerify,
+                passwordverify,
             };
 
             await axios.post("http://localhost:5000/auth/", registerData);
@@ -38,13 +38,13 @@ export default function Register() {
                 type='string' 
                 placeholder='First Name' 
                 onChange={(e) => setFirstName(e.target.value)}
-                value={firstName}  
+                value={firstname}  
                 />
                 <input 
                 type='string' 
                 placeholder='Last Name' 
                 onChange={(e) => setLastName(e.target.value)}
-                value={lastName}  
+                value={lastname}  
                 />
                 <input 
                 type='email' 
@@ -73,8 +73,8 @@ export default function Register() {
                 <input 
                 type='password' 
                 placeholder='Password Verify'
-                onChange={(e) => setPasswordVerify(e.target.value)}
-                value={passwordVerify}   
+                onChange={(e) => setPasswordverify(e.target.value)}
+                value={passwordverify}   
                 />
                 <button type='submit'>Register</button>
             </form>
