@@ -8,7 +8,7 @@ const UserSchema = new Schema({
     grade: { type: String, required: true },
     role: { 
         type: String,
-        enum: ['student', 'teacher','admin'],
+        enum: ['student', 'teacher', 'Student', 'Teacher' ],
         default: 'student'
       },   
       passwordHash: { type: String, required:true  },

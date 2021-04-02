@@ -2,6 +2,7 @@ const router = require('express').Router();
 const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { ReplSet } = require('mongodb');
 require('dotenv').config();
 
 const jwtSecret = process.env.JWT_SECRET;
@@ -18,7 +19,7 @@ router.post('/', async (req, res) => {
         const role = req.body.role
 
         //Validation
-        if (email =="" || password == "" || firstname == "" || lastname == "" || grade == "" || passwordverify=="" || role =="") {
+        if (email == "" || password == "" || firstname == "" || lastname == "" || grade == "" || passwordverify == "" || role == "") {
             return res
                 .status(401)
                 .json({ errorMessage: 'Please enter all required fields' });
@@ -144,5 +145,24 @@ router.get('/logout', (req, res) => {
     })
         .send();
 });
+
+
+router.get('/loggedin', (req, res) => {
+    try {
+        const token = req.cookies.token;
+
+        if (!token) {
+            res.json(false);
+        }
+
+        jwt.verify(token, process.env.JWT_SECRET);
+        res.send(true);
+
+    }
+    catch (err) {
+        res.json(false);
+    }
+
+})
 
 module.exports = router;

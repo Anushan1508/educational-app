@@ -40,6 +40,7 @@ app.use(
 // Load Routers
 app.use('/auth', require('./routes/userRoute'));
 app.use('/lession', require('./routes/lessionRouter'));
+app.use('/admin', require('./routes/adminRoutes'));
 
 // mongodb connection
 connectDB();
