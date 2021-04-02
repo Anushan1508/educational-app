@@ -17,12 +17,12 @@ const LessonSchema = new Schema({
                 type:Schema.Types.ObjectId,
                 ref:'user'
         },
-        quiz:[{
-                quizid:{
-                        type:Schema.Types.ObjectId,
-                        ref:'quiz'
-                }
-        }]
+        // quiz:[{
+        //         quizid:{
+        //                 type:Schema.Types.ObjectId,
+        //                 ref:'quiz'
+        //         }
+        // }]
 }
 //,
 // {timestamps:true}
