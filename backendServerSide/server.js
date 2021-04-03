@@ -16,12 +16,6 @@ const PORT = process.env.PORT || 8800;
 // Log Requests
 app.use(morgan('tiny'));
 
-
-
-
-// Parse request to body-parser
-app.use(bodyParser.urlencoded({ extended: true }));
-
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 })
@@ -41,6 +35,10 @@ app.use(
 app.use('/auth', require('./routes/userRoute'));
 app.use('/lession', require('./routes/lessionRouter'));
 app.use('/admin', require('./routes/adminRoutes'));
+
+// Parse request to body-parser
+//app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
 
 // mongodb connection
 connectDB();
