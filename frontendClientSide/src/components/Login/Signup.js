@@ -18,7 +18,6 @@ class Signup extends React.Component {
     render() {
         return (
             <>
-                
                     <Form style={{ width: "80%", marginTop: "10%", marginLeft: "10%" }}>            
                            <Row fluid>
                            <Col> 
@@ -32,7 +31,7 @@ class Signup extends React.Component {
                            </Row><br/>
                         <Form.Group>
                             <Form.Label className="label">Role of Study</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Your role(Student/Teacher/Admin)" required />
+                            <Form.Control type="text" placeholder="Enter Your role(Student/Teacher)" required />
                         </Form.Group>
                         <Form.Group>
                             <Form.Label className="label">Level of Study</Form.Label>

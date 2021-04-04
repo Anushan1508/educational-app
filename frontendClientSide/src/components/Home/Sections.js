@@ -22,10 +22,11 @@ function Sections({
             flexDirection: imgStart === 'start' ? 'row' : 'row-reverse'
           }}>
             <Col>
-              <img src={img} 
+              <img alt='Text' src={img} 
                 style={{
                   width: '400px', paddingRight: '0px',
-                  height: '400px', margin: '0px 0px 20px 10px'
+                  height: '400px', margin: '0px 0px 20px 10px',
+                  
                 }} />
             </Col>
             <Col>

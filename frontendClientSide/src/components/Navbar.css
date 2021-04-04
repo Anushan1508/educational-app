@@ -8,6 +8,17 @@
     color: #fff;
 }
 
+.navbar {
+    position: sticky;
+    top: 0;
+    padding: 15px 5px;
+    background-color: pink
+}
+
+::-webkit-textfield-decoration-container {
+  padding-top: 60px;
+}
+
 .navbar-logo:hover
 {
   text-decoration: none;
@@ -44,6 +55,11 @@
     color:darkgrey;
   }
 
+  .nav-links:active
+  {
+    color:rgb(10, 10, 10);
+  }
+
   .button
   {  
     background-color:#5D5C61;
@@ -66,6 +82,8 @@
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); 
     background-color:#B1A296;
  }
+
+ 
 
  .title
  {

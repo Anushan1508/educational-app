@@ -1,9 +1,10 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Col, Container, Row, Form, FormControl, Button, NavDropdown } from 'react-bootstrap'
+import { Col, Container, Row, Form, FormControl, Button /*,NavDropdown*/ } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom';
 import { ImBooks } from 'react-icons/im';
 import './Navbar.css'
+import { ButtonGroup } from 'reactstrap';
 
 
 function Navbar() {
@@ -35,27 +36,28 @@ function Navbar() {
                         <NavLink activeClassName="active" to='/forum' className='nav-links'>Discussion</NavLink>
                     </Col>
                     <Col className='nav-items' xs lg='4'>
-                        <NavLink activeClassName="active" to='/contact' className='nav-links'>Admin Panel</NavLink>
+                        <NavLink activeClassName="active" to='/contact' className='nav-links'>Contact Us</NavLink>
                     </Col>
-                    <Col>
-                        <NavLink activeClassName="active" to='/signin'>
-                            <button className='button'>Sign In</button>
-                        </NavLink>
-                    </Col>
-                    <Col>
-                        <NavLink activeClassName="active" to='/signup'>
-                            <button className='button'>Register</button>
-                        </NavLink>
-                    </Col>
-                    <Col>
-                        <NavLink activeClassName="active" to='/logout'>
-                            <button className='button'>Log Out</button>
-                        </NavLink>
-                    </Col>
+                    <ButtonGroup>
+                            <Button>
+                                <NavLink activeClassName="active" to='/signin'>
+                                    <button className='button'>Log In</button>
+                                </NavLink>
+                            </Button>
+                            <Button>
+                                <NavLink activeClassName="active" to='/signup'>
+                                    <button className='button'>Register</button>
+                                </NavLink>
+                            </Button>
+                            <Button>
+                                <NavLink activeClassName="active" to='/logout'>
+                                    <button className='button'>Log Out</button>
+                                </NavLink>
+                            </Button>
+                            <Button>Admin Panel</Button>
+                    </ButtonGroup>
                 </Row>
             </Container>
-
-
         </>
     );
 }
