@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const LessonSchema = new Schema({
+const LessionSchema = new Schema({
     
-        name: { type: String, required: true },
-        grade: { type: String, required: true },
+        name: { type: String },
+        grade: { type: String },
         students:[{
                 studentid:{
                 type:Schema.Types.ObjectId,
@@ -29,5 +29,5 @@ const LessonSchema = new Schema({
 
 );
 
-const Lesson= mongoose.model("lesson",LessonSchema);
-module.exports = Lesson;
+const Lession= mongoose.model("lesson",LessionSchema);
+module.exports = Lession;

@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Navbar from './components/layout/Navbar';
+import Lessions from './components/lessions/Lessions';
 import AuthContext from './context/AuthContext';
 
 export default function Router() {
@@ -34,7 +35,7 @@ export default function Router() {
                     loggedIn === true && (
                         <>
                         <Route path="/lession">
-                            <div>Lessions</div>
+                            <Lessions />
                         </Route>
                         </>
                     )

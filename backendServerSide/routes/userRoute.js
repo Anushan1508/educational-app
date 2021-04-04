@@ -24,19 +24,16 @@ router.post('/', async (req, res) => {
                 .status(401)
                 .json({ errorMessage: 'Please enter all required fields' });
         }
-        console.log('step1');
         if (password.length < 6) {
             return res
                 .status(402)
                 .json({ errorMessage: "Please enter a password of at least 6 charectors" });
         }
-        console.log('step2');
         if (password !== passwordverify) {
             return res
                 .status(403)
                 .json({ errorMessage: "Please enter same password twice" });
         }
-        console.log('step3');
         const existingUser = await User.findOne({ email });
         // console.log(existingUser);
 
@@ -97,21 +94,21 @@ router.post("/login", async (req, res) => {
                 .status(400)
                 .json({ errorMessage: 'Please enter all required fields' });
         }
-
+        console.log('test');
         const existingUser = await User.findOne({ email });
         if (!existingUser) {
             return res
                 .status(401)
                 .json({ errorMessage: "Wrong Email or password" });
         }
-
+        console.log('test');
         const passwordCorrect = await bcrypt.compare(password, existingUser.passwordHash);
         if (!passwordCorrect) {
             return res
                 .status(401)
                 .json({ errorMessage: "Wrong email or Password" });
         }
-
+        console.log('test');
         // sing the token
         const token = jwt.sign({
             user: existingUser._id

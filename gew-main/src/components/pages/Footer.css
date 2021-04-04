@@ -1,0 +1,38 @@
+.logo 
+{
+    color:white;
+    justify-self: start;
+    margin-left:20rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-top:25px;
+}
+  
+.new
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    font-size:30px;
+} 
+  /* Social Icons */
+  .social-icon-link {
+    color: #fff;
+    font-size: 24px;
+  }
+  
+  .website-rights 
+  {
+    color: #fff;
+    margin-left:20rem;
+    display: flex;
+    align-items: center;
+    margin-top:25px;  
+  }
+  
+ 
+  
+  
+  

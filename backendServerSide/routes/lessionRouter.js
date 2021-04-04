@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Lesson = require('../models/lession');
+const Lession = require('../models/lession');
 const auth = require('../middleware/auth');
 
 router.post('/',  auth,  async (req, res) => {
@@ -8,7 +8,7 @@ router.post('/',  auth,  async (req, res) => {
         const grade = req.body.grade
         //const teacherid = req.user.id
 
-        const newLession = new Lesson ({
+        const newLession = new Lession ({
             name,
             grade
             //,teacherid
@@ -29,7 +29,7 @@ router.post('/',  auth,  async (req, res) => {
 router.get('/', auth,  async (req, res) => {
 
     try {
-        const lessions = await Lesson.find();
+        const lessions = await Lession.find();
         res.json(lessions);
     }
 

@@ -1,0 +1,68 @@
+.Lbg
+{
+  background-color: #fff;
+  padding:80px 0px;
+}
+
+.Dbg
+{
+  background-color: #1c2237;
+  padding:80px 0px;
+}
+
+img 
+{
+  border: 0;
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+  
+  .home__hero-text-wrapper
+  {
+    max-width: 500px;
+    padding-top: 40px;
+    padding-bottom:20px;
+  }
+  
+  .top-line 
+  {
+    color: #f00946;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  
+  .heading 
+  {
+    margin-bottom: 24px;
+    font-size:38px;
+    line-height:55px;
+    font-weight: 600;
+    color: #f7f8fa;
+    letter-spacing:2px;
+  }
+  
+
+  .home__hero-subtitle 
+  {
+    max-width: 500px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height:35px;
+    color: #f7f8fa;
+    letter-spacing:1.5px;
+  }
+  
+  
+  .dark
+  {
+    color:black;
+  }
+
+  
+  
+  

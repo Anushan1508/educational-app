@@ -1,0 +1,50 @@
+.center
+{
+    margin-right: auto;
+    margin-left: auto;
+    display:grid;
+}
+
+.card 
+{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    transition: 0.3s;
+    width:75%;
+    border-left:20px;
+    margin-left:170px;
+    border:200px;
+    margin-top: 100px;  
+    margin-bottom: 90px;
+}
+  
+.card:hover  
+{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.label
+{
+    font-size:19px;
+    font-weight :600px;;
+    font-family:"Source Serif Pro";
+}
+
+.head 
+{
+    padding: 10px;
+    background-color: darkgrey;
+    border-bottom: 1px solid #999;
+    text-align: center;
+}
+
+.head a 
+{
+    color: rgb(90, 77, 77);
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 5px;
+}
+  

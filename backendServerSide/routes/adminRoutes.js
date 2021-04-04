@@ -10,6 +10,10 @@ AdminBro.registerAdapter(AdminBroMongoose)
 const adminBro = new AdminBro({
   databases: [mongoose],
   rootPath: '/admin',
+  branding: {
+    logo: 'https://www.shutterstock.com/image-vector/book-stack-vector-black-icon-1259060506',
+    companyName: 'Alvin',
+  }
 })
 
 const ADMIN = {
