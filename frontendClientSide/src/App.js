@@ -8,7 +8,10 @@ import Forum from './components/pages/Forum'
 import Contact from './components/pages/Contact'
 import Register from './components/pages/Register'
 import Logout from './components/pages/Logout'
+import axios from 'axios'
 //import PrivateRoute from './components/Utils/PrivateRoute'
+
+axios.defaults.withCredentials = true;
 
 function App() {
   return (

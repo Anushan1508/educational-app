@@ -38,53 +38,41 @@ export default function Register() {
     }
 
     return (
-        <div>
-            <h1>Register a new user</h1>
-            <form onSubmit={register}>
-                <input 
-                type='string' 
-                placeholder='First Name' 
-                onChange={(e) => setFirstName(e.target.value)}
-                value={firstname}  
-                />
-                <input 
-                type='string' 
-                placeholder='Last Name' 
-                onChange={(e) => setLastName(e.target.value)}
-                value={lastname}  
-                />
-                <input 
-                type='email' 
-                placeholder='Email' 
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}  
-                />
-                <input 
-                type='string' 
-                placeholder='Grade' 
-                onChange={(e) => setGrade(e.target.value)}
-                value={grade}  
-                />
-                <input 
-                type='string' 
-                placeholder='Role' 
-                onChange={(e) => setRole(e.target.value)}
-                value={role}  
-                />
-                <input 
-                type='password' 
-                placeholder='Password' 
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}  
-                />
-                <input 
-                type='password' 
-                placeholder='Password Verify'
-                onChange={(e) => setPasswordverify(e.target.value)}
-                value={passwordverify}   
-                />
-                <button type='submit'>Register</button>
-            </form>
-        </div>
+        <>
+                    <Form style={{ width: "80%", marginTop: "10%", marginLeft: "10%" }}>            
+                           <Row fluid>
+                           <Col> 
+                            <Form.Label className="label">Firstname</Form.Label>
+                            <Form.Control type="text" placeholder="Enter Your Firstname" required /> 
+                            </Col>
+                            <Col>
+                            <Form.Label className="label">Lastname</Form.Label>
+                            <Form.Control type="text" placeholder="Enter Your Lastname" required />
+                            </Col>
+                           </Row><br/>
+                        <Form.Group>
+                            <Form.Label className="label">Role of Study</Form.Label>
+                            <Form.Control type="text" placeholder="Enter Your role(Student/Teacher)" required />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label className="label">Level of Study</Form.Label>
+                            <Form.Control type="text" placeholder="Enter Your Grade/Level Studying" required />
+                        </Form.Group>        
+                            <Form.Group>
+                                <Form.Label className="label">Email</Form.Label>
+                                <Form.Control type="email" placeholder="Enter Your Email" required />
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Label className="label">Password</Form.Label>
+                                <Form.Control type="password" placeholder="Enter your password" required />
+                            </Form.Group>
+                            <Form.Group>
+                                <Form.Label className="label">Verify Password</Form.Label>
+                                <Form.Control type="password" placeholder="Enter your password again" required />
+                            </Form.Group>
+                            <Button variant="secondary"  type="submit" className='center'>SignUp</Button>
+                           </Form>
+               
+            </>
     )
 }
