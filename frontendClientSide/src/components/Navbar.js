@@ -39,22 +39,22 @@ function Navbar() {
                         <NavLink activeClassName="active" to='/contact' className='nav-links'>Contact Us</NavLink>
                     </Col>
                     <ButtonGroup>
-                            <Button>
-                                <NavLink activeClassName="active" to='/signin'>
-                                    <button className='button'>Log In</button>
-                                </NavLink>
-                            </Button>
-                            <Button>
-                                <NavLink activeClassName="active" to='/signup'>
-                                    <button className='button'>Register</button>
-                                </NavLink>
-                            </Button>
-                            <Button>
-                                <NavLink activeClassName="active" to='/logout'>
-                                    <button className='button'>Log Out</button>
-                                </NavLink>
-                            </Button>
-                            <Button>Admin Panel</Button>
+                        <Button>
+                            <NavLink activeClassName="active" to='/signin'>
+                                <button className='button'>Log In</button>
+                            </NavLink>
+                        </Button>
+                        <Button>
+                            <NavLink activeClassName="active" to='/signup'>
+                                <button className='button'>Register</button>
+                            </NavLink>
+                        </Button>
+                        <Button>
+                            <NavLink activeClassName="active" to='/logout'>
+                                <button className='button'>Log Out</button>
+                            </NavLink>
+                        </Button>
+                        <Button>Admin Panel</Button>
                     </ButtonGroup>
                 </Row>
             </Container>
