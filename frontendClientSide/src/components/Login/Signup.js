@@ -1,9 +1,11 @@
-import React, { useState, useContext} from 'react';
+import React, { useContext, useState} from 'react';
 import { Form, Button,Row,Col } from 'react-bootstrap'
 import './Style.css'
 import axios from 'axios';
+import AuthContext from '../../context/AuthContext';
+import { useHistory } from 'react-router';
 //import AuthContext from '../../context/AuthContext';
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 function Signup() {
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
@@ -12,6 +14,9 @@ function Signup() {
     const [role, setRole] = useState("");
     const [password, setPassword] = useState("");
     const [passwordverify, setPasswordverify] = useState("");
+
+    const {getLoggedIn } =useContext(AuthContext); 
+    const history = useHistory();
 
     async function register(e) {
         e.preventDefault();
@@ -28,6 +33,8 @@ function Signup() {
             };
 
             await axios.post('http://localhost:5000/auth/', registerData);
+            await getLoggedIn();
+            history.push('/');
 
         } catch(err) {
             console.error(err);
