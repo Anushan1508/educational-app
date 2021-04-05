@@ -25,7 +25,6 @@ export default function Routers() {
                         loggedIn === true && (
                             <>
                                 <Route path='/dashboard' component={Dashboard} />
-                                <Route path='/forum' component={Forum} />
                                 <Route path='/logout' component={Logout} />
                             </>
                         )
@@ -40,6 +39,7 @@ export default function Routers() {
                         )
                     }
                     <Route path='/contact' component={Contact} />
+                    <Route path='/forum' component={Forum} />
                 </Switch>
                 <Footer />
             </Router>

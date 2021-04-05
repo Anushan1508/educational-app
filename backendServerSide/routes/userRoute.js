@@ -58,7 +58,9 @@ router.post('/', async (req, res) => {
             role
         });
 
-        const savedUser = await newUser.save();
+        const savedUser = await newUser.save()
+        .then(
+            res.json({message: "Save Sucessed"}));
 
         // sing the token
         const token = jwt.sign({
@@ -113,7 +115,8 @@ router.post("/login", async (req, res) => {
         const token = jwt.sign({
             user: existingUser._id
         },
-            jwtSecret);
+            jwtSecret)
+            .then(res.json({message: "Logged IN"}));
         // console.log(token);
 
         // send the token in a HTTP-only cookie
@@ -138,8 +141,9 @@ router.post("/login", async (req, res) => {
 router.get('/logout', (req, res) => {
     res.cookie('token', '', {
         httpOnly: true,
-        expires: new Date(0)
-    })
+        expires: new Date(0),
+    }),
+    res.json({message: "loggedout"})
         .send();
 });
 
