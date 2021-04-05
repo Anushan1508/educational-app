@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Row, Form, FormControl, Button /*,NavDropdown*/ } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom';
 import { ImBooks } from 'react-icons/im';
 import './Navbar.css'
 import { ButtonGroup } from 'reactstrap';
+import AuthContext from '../context/AuthContext';
 
 
 function Navbar() {
+    const { loggedIn } = useContext(AuthContext);
     return (
         <>
             <Container fluid style={{ backgroundColor: 'rgb(0,115,207)', height: '150px', position: 'sticky-top', marginTop: '0.5rem' }}>
@@ -29,31 +31,50 @@ function Navbar() {
                     <Col className='nav-items'>
                         <NavLink exact activeClassName="active" to='/' className='nav-links'>Home</NavLink>
                     </Col>
-                    <Col className='nav-items'>
-                        <NavLink activeClassName="active" to='/dashboard' className='nav-links'>Dashboard</NavLink>
-                    </Col>
-                    <Col className='nav-items'>
-                        <NavLink activeClassName="active" to='/forum' className='nav-links'>Discussion</NavLink>
-                    </Col>
+                    {
+                        loggedIn && (
+                            <>
+                                <Col className='nav-items'>
+                                    <NavLink activeClassName="active" to='/dashboard' className='nav-links'>Dashboard</NavLink>
+                                </Col>
+                                <Col className='nav-items'>
+                                    <NavLink activeClassName="active" to='/forum' className='nav-links'>Discussion</NavLink>
+                                </Col>
+                            </>
+                        )
+                    }
+
                     <Col className='nav-items' xs lg='4'>
                         <NavLink activeClassName="active" to='/contact' className='nav-links'>Contact Us</NavLink>
                     </Col>
                     <ButtonGroup>
-                        <Button>
-                            <NavLink activeClassName="active" to='/signin'>
-                                <button className='button'>Log In</button>
-                            </NavLink>
-                        </Button>
-                        <Button>
-                            <NavLink activeClassName="active" to='/signup'>
-                                <button className='button'>Register</button>
-                            </NavLink>
-                        </Button>
-                        <Button>
-                            <NavLink activeClassName="active" to='/logout'>
-                                <button className='button'>Log Out</button>
-                            </NavLink>
-                        </Button>
+                        {
+                            loggedIn === false && (
+                                <>
+                                    <Button>
+                                        <NavLink activeClassName="active" to='/signin'>
+                                            <button className='button'>Log In</button>
+                                        </NavLink>
+                                    </Button>
+                                    <Button>
+                                        <NavLink activeClassName="active" to='/signup'>
+                                            <button className='button'>Register</button>
+                                        </NavLink>
+                                    </Button>
+                                </>
+                            )
+                        }
+
+                        {
+                            loggedIn === true && (
+                                <>
+                                    <Button>
+                                        <NavLink activeClassName="active" to='/logout'>
+                                            <button className='button'>Log Out</button>
+                                        </NavLink>
+                                    </Button>
+                                </>
+                            )}
                         <Button>Admin Panel</Button>
                     </ButtonGroup>
                 </Row>
