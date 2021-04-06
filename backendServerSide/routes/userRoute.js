@@ -115,8 +115,7 @@ router.post("/login", async (req, res) => {
         const token = jwt.sign({
             user: existingUser._id
         },
-            jwtSecret)
-            .then(res.json({message: "Logged IN"}));
+            jwtSecret);
         // console.log(token);
 
         // send the token in a HTTP-only cookie
