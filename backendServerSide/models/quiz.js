@@ -11,7 +11,7 @@ const QuizSchema = new Schema({
     }],
     lessionId: {
         type: Schema.Types.ObjectId,
-        ref: 'lesson'
+        ref: 'lession'
     },
 })
 

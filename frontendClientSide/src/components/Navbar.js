@@ -76,7 +76,7 @@ function Navbar() {
                                     </Button>
                                 </>
                             )}
-                        <Button>Admin Panel</Button>
+                        <Button href='http://localhost:5000/admin/'>Admin Panel</Button>
                     </ButtonGroup>
                 </Row>
             </Container>
