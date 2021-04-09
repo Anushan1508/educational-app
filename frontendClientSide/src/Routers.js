@@ -21,6 +21,8 @@ export default function Routers() {
                 <Navbar />
                 <Switch>
                     <Route path='/' exact component={Home} />
+                    <Route path='/contact' component={Contact} />
+                    <Route path='/forum' component={Forum} />
                     {
                         loggedIn === true && (
                             <>
@@ -38,8 +40,7 @@ export default function Routers() {
                             </>
                         )
                     }
-                    <Route path='/contact' component={Contact} />
-                    <Route path='/forum' component={Forum} />
+                    
                 </Switch>
                 <Footer />
             </Router>

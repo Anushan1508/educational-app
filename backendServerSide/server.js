@@ -35,6 +35,7 @@ app.use(
 app.use('/auth', require('./routes/userRoute'));
 app.use('/lession', require('./routes/lessionRouter'));
 app.use('/admin', require('./routes/adminRoutes'));
+//app.use('/contactform', require('./routes/contactRoutes'));
 
 // Parse request to body-parser
 //app.use(bodyParser.urlencoded({ extended: true }));
@@ -42,3 +43,4 @@ app.use(bodyParser.json())
 
 // mongodb connection
 connectDB();
+
