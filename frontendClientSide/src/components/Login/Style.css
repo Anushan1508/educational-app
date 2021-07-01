@@ -16,6 +16,7 @@
     border:200px;
     margin-top: 100px;  
     margin-bottom: 90px;
+    background-color: #FCA311;
 }
   
 .card:hover  
@@ -27,7 +28,27 @@
 {
     font-size:19px;
     font-weight :600px;;
-    font-family:"Source Serif Pro";
+    font-family:"Tekton Pro";
+}
+
+
+.box
+{
+    padding: 80px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    background-color:rgb(243, 243, 243);
+    text-align: center;
+}
+
+.reply
+{
+    text-align: left;
+    padding: 20px;
+    margin-top:10px;
+    margin-left:40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .head 
@@ -40,11 +61,12 @@
 
 .head a 
 {
-    color: rgb(90, 77, 77);
+    color:#19294D;
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
     margin-left: 20px;
     margin-right: 5px;
+    font-family:'Maiandra GD';
 }
-  
+

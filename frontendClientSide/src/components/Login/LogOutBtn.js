@@ -15,6 +15,6 @@ export default function LogOutBtn() {
         history.push('/');        
     }
   return (
-    <Button variant="secondary" onClick ={logOut}>Logout</Button>
+    <Button variant="secondary" onClick ={logOut}>Yes</Button>
   );
 }

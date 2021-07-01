@@ -6,7 +6,6 @@ import { ImBooks } from 'react-icons/im';
 import './Navbar.css'
 import { ButtonGroup } from 'reactstrap';
 import AuthContext from '../context/AuthContext';
-import LogOutBtn from './Login/LogOutBtn';
 
 
 function Navbar() {
@@ -56,12 +55,7 @@ function Navbar() {
                                 <>
                                     <Button>
                                         <NavLink activeClassName="active" to='/signin'>
-                                            <button className='button'>Log In</button>
-                                        </NavLink>
-                                    </Button>
-                                    <Button>
-                                        <NavLink activeClassName="active" to='/signup'>
-                                            <button className='button'>Register</button>
+                                            <button className='button'>Log Out</button>
                                         </NavLink>
                                     </Button>
                                 </>
@@ -73,7 +67,7 @@ function Navbar() {
                                 <>
                                     <Button>
                                         <NavLink activeClassName="active" to='/logout'>
-                                            <LogOutBtn />
+                                           <button className='button'>Log In</button>
                                         </NavLink>
                                     </Button>
                                 </>
