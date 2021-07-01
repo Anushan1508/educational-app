@@ -13,21 +13,23 @@ function Navbar() {
     const { loggedIn } = useContext(AuthContext);
     return (
         <>
-            <Container fluid style={{ backgroundColor: 'rgb(0,115,207)', height: '150px', position: 'sticky-top', marginTop: '0.5rem' }}>
+            <Container fluid style={{ backgroundColor:'black', height: '170px', position: 'sticky-top'}}>
+            <br/>
                 <Row >
                     <Col xs lg="6">
                         <NavLink to='/' className='navbar-logo'>
-                            <ImBooks style={{ width: '40px', height: '40px', marginRight: '1rem' }} />
+                            <ImBooks style={{ width: '41px', height: '50px', marginRight: '1rem' }} />
                             <span className='header' >AlViN EDU-Master</span>
                         </NavLink>
                     </Col>
-                    <Col xs lg='2.5'>
-                        <Form inline style={{ marginTop: '25px' }}>
+                    <Col xs lg='6'>
+                        <Form inline style={{ marginTop: '25px',marginLeft: '55px' }}>
                             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                             <Button variant="secondary">Search</Button>
                         </Form>
                     </Col>
                 </Row>
+               
                 <Row>
                     <Col className='nav-items'>
                         <NavLink exact activeClassName="active" to='/' className='nav-links'>Home</NavLink>
@@ -45,7 +47,7 @@ function Navbar() {
                         )
                     }
 
-                    <Col className='nav-items' xs lg='4'>
+                    <Col className='nav-items' xs lg='6.5'>
                         <NavLink activeClassName="active" to='/contact' className='nav-links'>Contact Us</NavLink>
                     </Col>
                     <ButtonGroup>
@@ -76,9 +78,10 @@ function Navbar() {
                                     </Button>
                                 </>
                             )}
-                        <Button href='http://localhost:5000/admin/'>Admin Panel</Button>
+                        <Button variant="secondary" style={{marginRight:'4rem'}} href='http://localhost:5000/admin/'>Admin Panel</Button>
                     </ButtonGroup>
                 </Row>
+                <br/>
             </Container>
         </>
     );

@@ -22,11 +22,12 @@ export default function Routers() {
                 <Switch>
                     <Route path='/' exact component={Home} />
                     <Route path='/contact' component={Contact} />
-                    <Route path='/forum' component={Forum} />
+                    
                     {
                         loggedIn === true && (
                             <>
                                 <Route path='/dashboard' component={Dashboard} />
+                                <Route path='/forum' component={Forum} />
                                 <Route path='/logout' component={Logout} />
                             </>
                         )

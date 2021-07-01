@@ -1,8 +1,8 @@
 .logo 
 {
-    color:white;
+    color:darkgrey;
     justify-self: start;
-    margin-left:20rem;
+    margin-left:35rem;
     cursor: pointer;
     text-decoration: none;
     display: flex;
@@ -14,11 +14,14 @@
 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
+    color:#fca311;
     cursor: pointer;
     font-size:30px;
 } 
   /* Social Icons */
-  .social-icon-link {
+  
+  .social-icon-link 
+  {
     color: #fff;
     font-size: 24px;
   }
@@ -26,20 +29,22 @@
   .website-rights 
   {
     color: #fff;
-    margin-left:20rem;
+    margin-left:35rem;
     display: flex;
-    align-items: center;
-    margin-top:25px;  
+    font-size:13px ;
+    font-family:'Bookman Old Style';
   }
   
-  Footer {
-    position:absolute;
+  Footer 
+  {
+  position:absolute;
   left:0;
   bottom:0;
   right:0;
   }
 
-  ::-webkit-textfield-decoration-container {
+  ::-webkit-textfield-decoration-container 
+  {
     padding-bottom:60px;
   }
  

@@ -14,7 +14,8 @@ function Sections({
   imgStart
 }) {
   return (
-    <>
+    <> 
+      <br/>
       <div className={lightBg ? 'Lbg' : 'Dbg'} >
         <Container>
           <Row style={{
@@ -24,8 +25,8 @@ function Sections({
             <Col>
               <img alt='Text' src={img} 
                 style={{
-                  width: '400px', paddingRight: '0px',
-                  height: '400px', margin: '0px 0px 20px 10px',
+                  width: '480px', paddingRight: '0px',
+                  height: '380px', margin: '0px 0px 20px 10px',
                   
                 }} />
             </Col>

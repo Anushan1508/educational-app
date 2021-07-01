@@ -8,21 +8,12 @@ import './Footer.css'
 function Footer() {
     return (
         <>
-            
-            <Container fluid style={{backgroundColor: '#1c2237', height: '150px',alignItems:"center",position:'sticky-bottom',marginTop:'1rem'}}>
-                <Row>
-                    <Col xs lg='6'>
-                        <div className="logo">
-                        <ImBooks style={{ width: '40px', height: '40px', marginRight: '1rem' }}/>
-                        <span className="new">AlViN EDU-Master</span>
-                        </div>
-                    </Col >
-                    <Col xs lg='6'>
-                        <small className='website-rights'>AlViN EDU-Master © 2021</small>
-                    </Col>
-                </Row>
-                <Row>
-                <Col  md="auto">
+            <br/><br/>
+            <Container fluid style={{backgroundColor: '#1c2237', alignItems:"center",position:'sticky-bottom',marginTop:'1rem'}}>
+                <br/>
+            <span style={{ marginLeft:'40.5rem',color:'darkgrey',fontSize:'23px',fontFamily:'Stencil'}} ><b>Follow us on </b></span>   
+            <Row>
+                <Col style={{ marginLeft:'40rem'}} md="auto">
                         <Link className='social-icon-link' to='/' target='_blank' aria-label='Facebook'>
                             <FaFacebook />
                         </Link>
@@ -43,7 +34,26 @@ function Footer() {
                             <FaLinkedin />
                         </Link>
                     </Col>
+                </Row><br/>
+                <Row>
+                    <Col>
+                        <div className="logo">
+                        <ImBooks style={{ width: '40px', height: '40px', marginRight: '1rem' }}/>
+                        <span className="new">AlViN EDU-Master</span>
+                        </div>
+                    </Col >
                 </Row>
+                <Row>
+                    <Col>
+                        <small className='website-rights'> <br/>Copyright © 2021 AlViN EDU-Master. All Rights Reserved </small>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                    <span className='website-rights' style={{ marginLeft:'40rem'}}>Privacy Policy | Legal Notice</span>
+                    </Col>
+                </Row>
+                <br/><br/>
             </Container>
         </>
     );
