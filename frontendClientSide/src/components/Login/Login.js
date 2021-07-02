@@ -51,13 +51,13 @@ function Login(props) {
                     value={password}
                 />
             </Form.Group>
-            <br />
+            <br /><br />
             <Button
                 variant="secondary"
                 type="submit"
                 className='center'>Login</Button><br /><br />
-            <div style={{ fontSize: '18px',fontFamily:'Bell MT' }}>Don't have an account yet? <b style={{color:'darkgrey'}}>Sign Up</b></div>
-            <br /><br/>
+            <div style={{ fontSize: '20px' }}>Don't have an account yet? <b>Sign Up</b></div>
+            <br /><br />
         </Form>
     );
 }

@@ -7,14 +7,10 @@ import Dashboard from './components/pages/Dashboard'
 import Home from './components/pages/Home'
 import Forum from './components/pages/Forum'
 import Contact from './components/pages/Contact'
+import Register from './components/pages/Register'
 import Logout from './components/pages/Logout'
 import AuthContext from './context/AuthContext';
-import Chemistry from './components/Subjects/Chemistry'
-import Biology from './components/Subjects/Biology'
-import English from './components/Subjects/English'
-import Physics from './components/Subjects/Physics'
-import IT from './components/Subjects/IT'
-import Maths from './components/Subjects/Maths'
+
 export default function Routers() {
 
     const { loggedIn } = useContext(AuthContext);
@@ -26,19 +22,12 @@ export default function Routers() {
                 <Switch>
                     <Route path='/' exact component={Home} />
                     <Route path='/contact' component={Contact} />
-                    
+                    <Route path='/forum' component={Forum} />
                     {
                         loggedIn === true && (
                             <>
                                 <Route path='/dashboard' component={Dashboard} />
-                                <Route path='/forum' component={Forum} />
                                 <Route path='/logout' component={Logout} />
-                                <Route path='/chemistry' component={Chemistry}/>
-                                <Route path='/biology' component={Biology}/>
-                                <Route path='/english' component={English}/>
-                                <Route path='/ict' component={IT}/>
-                                <Route path='/physics' component={Physics}/>
-                                <Route path='/maths' component={Maths}/>
                             </>
                         )
                     }
@@ -47,6 +36,7 @@ export default function Routers() {
                         loggedIn === false && (
                             <>
                                 <Route path='/signin' component={Signin} />
+                                <Route path='/signup' component={Register} />
                             </>
                         )
                     }
