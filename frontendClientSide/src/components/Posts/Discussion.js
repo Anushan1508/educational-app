@@ -1,24 +1,18 @@
 import React, { useState } from 'react'
 import Time from './Time'
-import Counter from './Counter'
-import { Container } from 'react-bootstrap';
-import '../Login/Style.css'
+import {IoIosArrowDropupCircle,IoIosArrowDropdownCircle} from 'react-icons/io'
+// import {Form} from 'react-bootstrap';
 
+const users = ['Hitesh', 'Jon Doe', 'Lorem Itsum', 'Bunny', 'Kim'];
 
 //replying to comment 
 const ReplyInput = (props) => {
     return (
-        <div><br/>
-            <Container>
-                <form onSubmit={props.handelSubmitInputChange}  >
-                    <input 
-                    name={props.postId}  
-                    placeholder="   Enter your reply" 
-                    onChange={props.handelReplyInputChange} 
-                    style={{height:'80px',width:'100%',borderRadius:'6px',border:'none'}}
-                    required />
-                </form>
-            </Container>
+        <div>
+             <form onSubmit={props.handelSubmitInputChange}>
+                <input name={props.postId}   className="form-control mt-2 my-2" placeholder="Enter your reply" onChange={props.handelReplyInputChange} required />
+            </form>
+           
         </div>
     )
 }
@@ -36,11 +30,13 @@ function Comments(props) {
 
     const handelSubmitInputChange = (e) => {
         e.preventDefault();
+        let user = users;//[Math.floor(Math.random() * 4)];
 
         //updating comment details
         let commentDetails = {
+            postedByUser: user,
             timeStamp: Date.now(),
-            commentId: Math.floor(Math.random() * 1000),
+            commentId: user ,//+ Math.floor(Math.random() * 1000),
             content: commentInp,
             voteCount: 0
         }
@@ -54,20 +50,33 @@ function Comments(props) {
         console.log(comments);
     }
 
+    const voteUp = (e) => {
+        var newPostArray = [...comments];
+        ++newPostArray[e].voteCount;
+        setComment(newPostArray);
+    }
+
+    const downVote = (e) => {
+        var newPostArray = [...comments];
+        --newPostArray[e].voteCount;
+        setComment(newPostArray);
+    }
 
     return (
-        <div className="reply">
-            <Time timeStamp={props.data.timeStamp} /><br/>
-            <p style={{fontFamily:'Tahoma',color:'#19294D'}}>{props.data.content}</p> 
+        <div>
+            <Time postedByUser={props.data.postedByUser} timeStamp={props.data.timeStamp} />
+            <p className="content"> {props.data.content} </p>
             <div>
-                <Counter /><br />
-                <span style={{ fontWeight: 'bold', color: '#fca311', marginLeft: '20px' }} onClick={() => setInput(!showInput)} >Reply</span>
+                {props.data.voteCount}
+                <IoIosArrowDropupCircle width="30px" onClick={props.voteUp} />
+                <IoIosArrowDropdownCircle width="30px" onClick={props.downVote} />
+                <span className="cursor-pointer" onClick={() => setInput(!showInput)} >reply</span>
                 {showInput ? <ReplyInput postId={props.data.postId} handelReplyInputChange={handelReplyInputChange} handelSubmitInputChange={handelSubmitInputChange} /> : null}
             </div>
             <ul>
                 {comments.length > 0 ?
                     comments.map((comment, key) => {
-                        return (<Comments data={comment} />)
+                        return (<Comments data={comment} voteUp={() => voteUp(key)} downVote={() => downVote(key)} />)
                     })
                     : null}
             </ul>
@@ -85,13 +94,26 @@ function Discussion(props) {
         setCommentInput(e.target.value);
     }
 
+    const voteUp = (e) => {
+        var newPostArray = [...comments];
+        ++newPostArray[e].voteCount;
+        setComment(newPostArray);
+    }
+
+    const downVote = (e) => {
+        var newPostArray = [...comments];
+        --newPostArray[e].voteCount;
+        setComment(newPostArray);
+    }
 
     const handelSubmitInputChange = (e) => {
         e.preventDefault();
+        let user = users[Math.floor(Math.random() * 4)];
 
         let commentDetails = {
+            postedByUser: user,
             timeStamp: Date.now(),
-            commentId: Math.floor(Math.random() * 1000),
+            commentId: user + Math.floor(Math.random() * 1000),
             content: commentInp,
             voteCount: 0
         }
@@ -107,17 +129,19 @@ function Discussion(props) {
 
 
     return (
-        <div className="reply">
-            <Time timeStamp={props.data.timeStamp} /><br/>
-            <p style={{fontFamily:'Tahoma',color:'#19294D'}}> {props.data.content} </p>
+        <div className="text-left card-div">
+            <Time postedByUser={props.data.postedByUser} timeStamp={props.data.timeStamp} />
+            <p className="content"> {props.data.content} </p>
             <div>
-                <Counter /><br />
-                <span style={{ fontWeight: 'bold', color: '#fca311', marginLeft: '20px' }} onClick={() => setInput(!showInput)} >Reply</span>
+                {props.data.voteCount}
+                <IoIosArrowDropupCircle width="30px" onClick={props.voteUp} />
+                <IoIosArrowDropdownCircle width="30px" onClick={props.downVote} />
+                <span className="cursor-pointer" onClick={() => setInput(!showInput)} >reply</span>
                 {showInput ? <ReplyInput postId={props.data.postId} handelReplyInputChange={handelReplyInputChange} handelSubmitInputChange={handelSubmitInputChange} /> : null}
             </div>
             <ul>
                 {comments.map((comment, key) => {
-                    return (<Comments data={comment} />)
+                    return (<Comments data={comment} voteUp={() => voteUp(key)} downVote={() => downVote(key)} />)
                 })}
             </ul>
         </div>

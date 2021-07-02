@@ -33,8 +33,8 @@ function Time(props) {
 
     return (
        <>
-        <div>
-          <span style={{fontWeight:'bold',color:'grey'}}> { timeSince(new Date(props.timeStamp)) } ago </span>
+        <div>{ props.postedByUser }
+          <span> { timeSince(new Date(props.timeStamp)) }</span>
         </div>
        </>
     )

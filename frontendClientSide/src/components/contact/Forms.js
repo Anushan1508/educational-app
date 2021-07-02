@@ -14,21 +14,20 @@ class Forms extends React.Component
    render()
    {
     return ( 
-        <Container 
-        style={{ position: 'sticky-top', marginTop: '2rem',marginLeft:'340px'}}>
-            <Form style={{ width: "50%", marginTop: "4%", marginLeft: "10%" }}>
+        <Container style={{ position: 'sticky-top', marginTop: '2rem',marginLeft:'340px'}}>
+            <Form style={{ width: "50%", marginTop: "10%", marginLeft: "10%" }}>
             <Form.Group>
-                <Form.Label id='email' style={{fontFamily:'Myriad Pro'}}>Email</Form.Label>
-                <Form.Control type="email"  required/>
+                <Form.Label id='email'>Email</Form.Label>
+                <Form.Control type="email" placeholder="Enter Your Email" required/>
             </Form.Group>
             <Form.Group>
-                <Form.Label id='firstname' style={{fontFamily:'Myriad Pro'}} >FirstName</Form.Label>
-                <Form.Control type="text"  required />
+                <Form.Label id='firstname' >FirstName</Form.Label>
+                <Form.Control type="text" placeholder="Enter Your Name" required />
             </Form.Group>
             <Form.Group>
-                <Form.Label id='message' style={{fontFamily:'Myriad Pro'}} >Message</Form.Label>
+                <Form.Label id='message' >Message</Form.Label>
                 
-                <textarea  style={{height:'180px',width:'100%'}}></textarea>
+                <textarea  placeholder="Type Your Message" style={{height:'180px',width:'100%'}}></textarea>
             </Form.Group>
             <br /><br />
             <Button variant="secondary" type="submit" className='center'>Submit</Button><br /><br />

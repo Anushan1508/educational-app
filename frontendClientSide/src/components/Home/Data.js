@@ -22,7 +22,7 @@ export const home_02=
   description:
     'Get Access to a vast hub of Tutorials and Pastpapers,Be an expert with frequent practise ',
   imgStart: '',
-  img: '../assets/tute.jpg',
+  img: '../assets/papers.jpg',
   
 };
 
@@ -72,7 +72,7 @@ export const home_06=
   lightText: true,
   lightTextDesc: true,
   topLine: 'Free Video access',
-  headline: 'Watch Videos To Understand Well',
+  headline: 'watch videos to understand well',
   description:
     'Access to videos for every lesson,where all the things will be summarized and help you to digest theory well. ',
   imgStart: '',

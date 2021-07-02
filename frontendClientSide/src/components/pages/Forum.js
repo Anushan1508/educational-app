@@ -1,21 +1,30 @@
 import React,{useState} from 'react'
 import Discussion from '../Posts/Discussion';
-import '../Login/Style.css'
-import { Button, Container } from 'react-bootstrap';
 
+const users = ['Hitesh', 'Jon Doe', 'Lorem Itsum', 'Bunny', 'Kim'];
 
 function Forum() {
 
-    const [post, setPost] = useState([ ]);
+    <div>Discussion forum</div>
+    const [post, setPost] = useState([{
+        postedByUser: 'Hitesh',
+        timeStamp: Date.now(),
+        postId: 'rxgyuioer',
+        content: 'Hey I am Hitesh',
+        voteCount: 1,
+    }]);
+
+
     const [inputText, setInput] = useState();
 
     const handelChanges = (e) => {
         e.preventDefault();
 
-        alert("Your Post will be posted now")
+        let user = users[Math.floor(Math.random() * 4)];
         let userDetails = {
+            postedByUser: user,
             timeStamp: Date.now(),
-            postId: Math.floor(Math.random() * 1000),
+            postId: user + Math.floor(Math.random() * 1000),
             content: inputText,
             voteCount: 0
         }
@@ -31,28 +40,30 @@ function Forum() {
         setInput(e.target.value);
     }
 
-    
+    const voteUp = (e) => {
+        var newPostArray = [...post];
+        ++newPostArray[e].voteCount;
+        setPost(newPostArray);
+    }
+
+    const downVote = (e) => {
+        var newPostArray = [...post];
+        --newPostArray[e].voteCount;
+        setPost(newPostArray);
+    }
 
     return (
         <>
-        <Container className='box'>
-            <form  onSubmit={handelChanges}>
-                    <input 
-                    className="form-control" 
-                    name="mainContent" 
-                    placeholder="Create a new discussion" 
-                    onChange={handelInputChange} 
-                    value={inputText} 
-                    required 
-                    autoComplete="off" 
-                    style={{height:'250px'}}/><br/><br/>
-                    <Button  variant="secondary" type='submit' >Post now</Button>
+            <div className="container text-center mt-5">
+            <form className="jumbotron" onSubmit={handelChanges}>
+                    <input className="form-control" name="mainContent" 
+                    placeholder="Create new discussion" onChange={handelInputChange} value={inputText} required autoComplete="off" />
             </form>
                 
                 {post.map((post, key) => {
-                    return (<Discussion data={post}  />)
+                    return (<Discussion data={post} voteUp={() => voteUp(key)} downVote={() => downVote(key)} />)
                 })}
-        </Container>  
+            </div>
         </>
     );
 }
