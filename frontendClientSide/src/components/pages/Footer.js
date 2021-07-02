@@ -81,9 +81,9 @@ const Footer = () => {
         <SocialMedia>
           <SocialMediaWrap>
             <SocialLogo to='/' onClick={toggleHome}>
-              AUSDAV
+              AlViN EDU-Master
             </SocialLogo>
-            <WebsiteRights>AUSDAV © {new Date().getFullYear()} All rights reserved.</WebsiteRights>
+            <WebsiteRights>AlViN EDU-Master © {new Date().getFullYear()} All rights reserved.</WebsiteRights>
             <SocialIcons>
               <SocialIconLink href='https://www.facebook.com/anushan1508/' target='_blank' arial-label='Facebook'>
                 <FaFacebook />
