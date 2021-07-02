@@ -67,7 +67,7 @@ router.post('/', async (req, res) => {
             user: savedUser._id
         },
             jwtSecret);
-        // console.log(token);
+        console.log(token);
 
         // send the token in a HTTP-only cookie
         res.cookie("token", token, {
